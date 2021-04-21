@@ -23,9 +23,16 @@
 
 //Práticas de acessibilidade:
 //Aplicar media queries para as primeiras variações de tamanhos de tela. Obs: utilizar sempre REM (relativa)
+@media (max-width: 1366px) {
+	html {
+		// max-width: 1366px;
+		font-size: 80%;
+	}
+}
+
 @media (max-width: 1080px) {
 	html {
-		font-size: 93.75%; // 15px
+		font-size: 93.75%;
 	}
 }
 
@@ -37,6 +44,7 @@
 
 body {
 	background: var(--gray-50);
+	overflow: hidden;
 }
 
 body,
