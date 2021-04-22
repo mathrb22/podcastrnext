@@ -119,6 +119,7 @@
 			th,
 			td {
 				padding: 0.75rem 1rem;
+				border-bottom: 1px solid var(--gray-100);
 			}
 
 			th {
@@ -131,7 +132,7 @@
 			td {
 				font-size: 0.875rem;
 
-				img {
+				img.thumbNail {
 					width: 2.5rem;
 					width: 2.5rem;
 					min-width: 3.5rem;
@@ -152,11 +153,11 @@
 				}
 
 				button {
-					width: 2rem;
+					width: 2.5rem;
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					height: 2rem;
+					height: 2.5rem;
 					background: var(--white);
 					border: 1px solid var(--gray-100);
 					border-radius: 0.5rem;
