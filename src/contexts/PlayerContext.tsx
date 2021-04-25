@@ -85,10 +85,16 @@ export function PlayerContextProvider({
 	}
 
 	function playPrevious() {
-		if (!hasPrevious) {
-			return;
+		if (hasPrevious) {
+			if (isShuffling) {
+				const previousRandomEpisodeIndex = Math.floor(
+					Math.random() * episodeList.length
+				);
+				setCurrentEpisodeIndex(previousRandomEpisodeIndex);
+			} else {
+				setCurrentEpisodeIndex(currentEpisodeIndex - 1);
+			}
 		}
-		setCurrentEpisodeIndex(currentEpisodeIndex - 1);
 	}
 
 	function clearPlayerState() {

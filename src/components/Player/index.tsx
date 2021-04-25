@@ -131,24 +131,21 @@ export function Player() {
 					<button
 						type='button'
 						disabled={!episode || !hasPrevious}
-						onClick={() => playPrevious()}>
+						onClick={playPrevious}>
 						<img src='/play-previous.svg' alt='Tocar anterior' />
 					</button>
 					<button
-						className={styles.playButton}
 						type='button'
+						className={styles.playButton}
 						disabled={!episode}
-						onClick={() => togglePlay()}>
+						onClick={togglePlay}>
 						{isPlaying ? (
 							<img src='/pause.svg' alt='Pausar' />
 						) : (
 							<img src='/play.svg' alt='Tocar' />
 						)}
 					</button>
-					<button
-						type='button'
-						disabled={!episode || !hasNext}
-						onClick={() => playNext()}>
+					<button type='button' disabled={!episode || !hasNext} onClick={playNext}>
 						<img src='/play-next.svg' alt='Tocar próximo' />
 					</button>
 					<button

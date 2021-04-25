@@ -1,5 +1,5 @@
 .playerContainer {
-	padding: 3rem 4rem;
+	padding: 2rem 3rem;
 	width: 26.5rem;
 	height: 100vh;
 	background: var(--purple-500);
@@ -38,15 +38,16 @@
 	strong {
 		display: block;
 		margin-top: 2rem;
-		font: 600 1.25rem Lexend, sans-serif;
-		line-height: 1.75rem;
+		font: 600 1.22rem Lexend, sans-serif;
+		line-height: 1.7rem;
 	}
 
 	span {
 		display: block;
+		font-size: 0.95rem;
 		margin-top: 1rem;
-		opacity: 0.6;
-		line-height: 1.5rem;
+		opacity: 0.7;
+		line-height: 1.6rem;
 	}
 }
 
@@ -70,7 +71,7 @@
 .progress {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
 	font-size: 0.875rem;
 
 	span {
@@ -123,7 +124,7 @@
 				filter: brightness(1.9);
 				position: absolute;
 				left: 40%;
-				top: 115%;
+				top: 110%;
 			}
 		}
 
