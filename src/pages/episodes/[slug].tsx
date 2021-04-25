@@ -7,6 +7,7 @@ import { api } from '../../services/api';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
 import { usePlayer } from '../../contexts/PlayerContext';
+import Head from 'next/head';
 
 type Episode = {
 	id: string;
@@ -29,6 +30,9 @@ export default function Episode({ episode }: EpisodeProps) {
 
 	return (
 		<div className={styles.container}>
+			<Head>
+				<title>{episode.title} | Podcastr</title>
+			</Head>
 			<div className={styles.episode}>
 				<div className={styles.thumbnailContainer}>
 					<Link href='/'>

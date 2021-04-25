@@ -100,7 +100,7 @@
 		background: transparent;
 		border: 0;
 		font-size: 0;
-		transition: filter 0.2s ease-in-out;
+		transition: filter 0.1s ease-in-out;
 
 		&:disabled {
 			cursor: default;
@@ -111,14 +111,39 @@
 			filter: brightness(0.8);
 		}
 
+		&.isActive {
+			filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+
+			&::after {
+				content: '';
+				width: 5px;
+				height: 5px;
+				border-radius: 2px;
+				background: #04d361;
+				filter: brightness(1.9);
+				position: absolute;
+				left: 40%;
+				top: 115%;
+			}
+		}
+
+		&.isActive:hover {
+			filter: brightness(1) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+		}
+
 		&.playButton {
 			width: 4rem;
 			height: 4rem;
 			border-radius: 1rem;
 			background: var(--purple-400);
+			transition: filter 0.2s ease-in-out, background 0.2s ease-in-out;
 
 			&:hover:not(:disabled) {
 				filter: brightness(0.95);
+			}
+
+			&:active {
+				background: var(--purple-800);
 			}
 		}
 	}
