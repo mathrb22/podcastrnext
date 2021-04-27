@@ -48,6 +48,10 @@
 						}
 					}
 
+					a.light {
+						color: var(--gray-50);
+					}
+
 					p {
 						font-size: 0.875rem;
 						margin-top: 0.5rem;
@@ -106,6 +110,11 @@
 						filter: brightness(0.95);
 					}
 				}
+
+				.btnGreen {
+					background: var(--green-500);
+					border: none;
+				}
 			}
 		}
 	}
@@ -119,7 +128,7 @@
 			th,
 			td {
 				padding: 0.75rem 1rem;
-				border-bottom: 1px solid var(--gray-100);
+				// border-bottom: 1px solid var(--gray-200);
 			}
 
 			th {
@@ -152,6 +161,10 @@
 					}
 				}
 
+				a.light {
+					color: var(--gray-50);
+				}
+
 				button {
 					width: 2.5rem;
 					display: flex;
@@ -173,6 +186,11 @@
 					&:hover {
 						filter: brightness(0.95);
 					}
+				}
+
+				.btnGreen {
+					background: var(--green-500);
+					border: none;
 				}
 			}
 		}

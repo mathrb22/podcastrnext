@@ -51,7 +51,7 @@ export default function Episode({ episode }: EpisodeProps) {
 					</button>
 				</div>
 
-				<header>
+				<header id='info'>
 					<h1>{episode.title}</h1>
 					<span>{episode.members}</span>
 					<span>{episode.publishedAt}</span>

@@ -8,6 +8,7 @@ import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 import styles from './home.module.scss';
 import { usePlayer } from '../contexts/PlayerContext';
+import { useTheme } from '../contexts/ThemeContextProvider';
 
 type Episode = {
 	id: string;
@@ -27,6 +28,7 @@ type HomeProps = {
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 	const { playList } = usePlayer();
+	const { isDarkMode } = useTheme();
 
 	const episodeList = [...latestEpisodes, ...allEpisodes];
 
@@ -51,16 +53,19 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 
 								<div className={styles.episodeDetails}>
 									<Link href={`/episodes/${episode.id}`}>
-										<a>{episode.title}</a>
+										<a className={isDarkMode ? styles.light : ''}>{episode.title}</a>
 									</Link>
 									<p>{episode.members}</p>
 									<span>{episode.publishedAt}</span>
 									<span>{episode.durationAsString}</span>
 								</div>
 
-								<button type='button' onClick={() => playList(episodeList, index)}>
+								<button
+									className={isDarkMode && styles.btnGreen}
+									type='button'
+									onClick={() => playList(episodeList, index)}>
 									<img
-										src='/play-green.svg'
+										src={isDarkMode ? '/play.svg' : '/play-green.svg'}
 										alt='Tocar episódio'
 										title='Tocar episódio'
 									/>
@@ -99,7 +104,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 									</td>
 									<td>
 										<Link href={`/episodes/${episode.id}`}>
-											<a>{episode.title}</a>
+											<a className={isDarkMode ? styles.light : ''}>{episode.title}</a>
 										</Link>
 									</td>
 									<td>{episode.members}</td>
@@ -109,11 +114,11 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 									<td>{episode.durationAsString}</td>
 									<td>
 										<button
-											className='playBtn'
+											className={isDarkMode && styles.btnGreen}
 											type='button'
 											onClick={() => playList(episodeList, index + latestEpisodes.length)}>
 											<img
-												src='/play-green.svg'
+												src={isDarkMode ? '/play.svg' : '/play-green.svg'}
 												alt='Tocar episódio'
 												title='Tocar episódio'
 											/>
