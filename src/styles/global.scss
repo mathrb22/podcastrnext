@@ -25,11 +25,14 @@
 	--dark-background-lighter: #212025;
 }
 
+html {
+	font-size: 81.25%; // 13px
+}
+
 //Práticas de acessibilidade:
 //Aplicar media queries para as primeiras variações de tamanhos de tela. Obs: utilizar sempre REM (relativa)
 @media (max-width: 1366px) {
 	html {
-		// max-width: 1366px;
 		font-size: 80%;
 	}
 }
@@ -49,7 +52,7 @@
 body {
 	background: var(--gray-50);
 	overflow: hidden;
-	transition: all 0.2s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 body,
@@ -82,21 +85,6 @@ h2 {
 
 button {
 	cursor: pointer;
-}
-
-::-webkit-scrollbar {
-	width: 14px;
-}
-
-::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(31, 31, 31, 0.2);
-	box-shadow: inset 0 0 6px rgba(31, 31, 31, 0.2);
-}
-
-::-webkit-scrollbar-thumb {
-	background: var(--gray-200);
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .darkMode {
@@ -140,18 +128,17 @@ button {
 		background: var(--dark-background-lighter);
 	}
 
-	::-webkit-scrollbar {
-		width: 14px;
+	.home_homePage__3mJ6H .home_allEpisodes__EffYV ul.home_listAll__2zBvg li {
+		background: var(--dark-background-lighter);
+		border: 0;
 	}
 
-	::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 0 0 6px rgba(31, 31, 31, 0.2);
-		box-shadow: inset 0 0 6px rgba(31, 31, 31, 0.2);
+	.allEpisodes {
+		background: var(--dark-background);
 	}
+}
 
-	::-webkit-scrollbar-thumb {
-		background: var(--gray-800);
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
-		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
-	}
+.scrollableContent {
+	height: calc(100vh - 6.5rem);
+	overflow-y: auto;
 }

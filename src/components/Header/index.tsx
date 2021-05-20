@@ -22,7 +22,10 @@ export function Header() {
 
 			<span>{currentDate}</span>
 
-			<button type='button' onClick={switchTheme} className={styles.themeSwitcher}>
+			<button
+				type='button'
+				onClick={() => switchTheme(!isDarkMode)}
+				className={styles.themeSwitcher}>
 				<img
 					src={isDarkMode ? '/sun-light.svg' : '/moon-dark.svg'}
 					alt='Alterar tema'

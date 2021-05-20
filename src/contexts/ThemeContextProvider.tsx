@@ -8,7 +8,7 @@ import {
 
 type ThemeContextData = {
 	isDarkMode: boolean;
-	switchTheme: () => void;
+	switchTheme: (isDarkMode: boolean) => void;
 };
 
 export const ThemeContext = createContext({} as ThemeContextData);
@@ -21,15 +21,22 @@ export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
 	const [isDarkMode, setIsDarkMode] = useState(false);
 
 	useEffect(() => {
-		if (isDarkMode) {
-			document.body.classList.add('darkMode');
-		} else {
-			document.body.classList.remove('darkMode');
+		const currentTheme = localStorage.getItem('@podcastrnext/theme');
+		if (currentTheme) {
+			switchTheme(currentTheme === 'darkTheme');
 		}
-	}, [isDarkMode]);
+	}, []);
 
-	function switchTheme() {
-		setIsDarkMode(!isDarkMode);
+	function switchTheme(isDarkMode: boolean) {
+		if (isDarkMode) {
+			localStorage.setItem('@podcastrnext/theme', 'darkTheme');
+			document.body.classList.add('darkMode');
+			setIsDarkMode(true);
+		} else {
+			localStorage.setItem('@podcastrnext/theme', 'lightTheme');
+			document.body.classList.remove('darkMode');
+			setIsDarkMode(false);
+		}
 	}
 
 	return (

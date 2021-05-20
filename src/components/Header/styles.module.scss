@@ -5,11 +5,11 @@
 	display: flex;
 	align-items: center;
 
-	padding: 2rem 4rem;
+	padding: 2rem;
 
 	border-bottom: 1px solid var(--gray-100);
 
-	transition: all 0.2s ease-in-out;
+	transition: all 0.1s ease-in-out;
 
 	p {
 		font-size: 1.1rem;
@@ -28,5 +28,40 @@
 		margin-left: 25px;
 		background: transparent;
 		border: 0;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.headerContainer {
+		p {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.headerContainer {
+		p {
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 820px) {
+	.headerContainer {
+		p {
+			display: none;
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.headerContainer {
+		span {
+			display: none;
+		}
+		button.themeSwitcher {
+			margin-left: auto;
+		}
 	}
 }

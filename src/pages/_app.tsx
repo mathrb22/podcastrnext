@@ -1,11 +1,10 @@
-import '../styles/global.scss';
-
+import { PlayerContextProvider } from '../contexts/PlayerContext';
+import { ThemeContextProvider } from '../contexts/ThemeContextProvider';
 import { Header } from '../components/Header';
 import { Player } from '../components/Player';
 
 import styles from '../styles/app.module.scss';
-import { PlayerContextProvider } from '../contexts/PlayerContext';
-import { ThemeContextProvider } from '../contexts/ThemeContextProvider';
+import '../styles/global.scss';
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -14,7 +13,7 @@ function MyApp({ Component, pageProps }) {
 				<div className={styles.wrapper}>
 					<main>
 						<Header />
-						<Component {...pageProps} />;
+						<Component {...pageProps} />
 					</main>
 					<Player />
 				</div>
