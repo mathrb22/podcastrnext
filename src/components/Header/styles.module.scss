@@ -31,14 +31,6 @@
 	}
 }
 
-@media screen and (max-width: 1080px) {
-	.headerContainer {
-		p {
-			display: none;
-		}
-	}
-}
-
 @media screen and (max-width: 1024px) {
 	.headerContainer {
 		p {
@@ -47,7 +39,7 @@
 	}
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 720px) {
 	.headerContainer {
 		p {
 			display: none;

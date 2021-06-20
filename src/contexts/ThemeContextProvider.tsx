@@ -18,7 +18,7 @@ type ThemeContextProviderProps = {
 };
 
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-	const [isDarkMode, setIsDarkMode] = useState(false);
+	const [isDarkMode, setIsDarkMode] = useState(true);
 
 	useEffect(() => {
 		const currentTheme = localStorage.getItem('@podcastrnext/theme');

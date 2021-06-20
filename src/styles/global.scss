@@ -37,12 +37,6 @@ html {
 	}
 }
 
-@media (max-width: 1080px) {
-	html {
-		font-size: 93.75%;
-	}
-}
-
 @media (max-width: 720px) {
 	html {
 		font-size: 87.5%; // 14px
@@ -85,6 +79,12 @@ h2 {
 
 button {
 	cursor: pointer;
+}
+
+li {
+	span {
+		font-size: 1.5rem;
+	}
 }
 
 .darkMode {

@@ -133,12 +133,14 @@ export function Player() {
 								type='button'
 								disabled={!episode || episodeList.length === 1}
 								onClick={toggleShuffle}
-								className={isShuffling ? styles.isActive : ''}>
+								className={
+									isShuffling && episodeList.length > 1 ? styles.isActive : ''
+								}>
 								<img src='/shuffle.svg' alt='Embaralhar' />
 							</button>
 							<button
 								type='button'
-								disabled={!episode || !hasPrevious}
+								disabled={!episode || !hasPrevious || episodeList.length === 1}
 								onClick={playPrevious}>
 								<img src='/play-previous.svg' alt='Tocar anterior' />
 							</button>
@@ -153,7 +155,10 @@ export function Player() {
 									<img src='/play.svg' alt='Tocar' />
 								)}
 							</button>
-							<button type='button' disabled={!episode || !hasNext} onClick={playNext}>
+							<button
+								type='button'
+								disabled={!episode || !hasNext || episodeList.length === 1}
+								onClick={playNext}>
 								<img src='/play-next.svg' alt='Tocar próximo' />
 							</button>
 							<button
