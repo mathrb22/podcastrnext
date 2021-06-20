@@ -8,6 +8,9 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 import styles from './episode.module.scss';
 import { usePlayer } from '../../contexts/PlayerContext';
 import Head from 'next/head';
+import useResponsiveUnits from '../../hooks/useResponsiveUnits';
+import { MdDateRange, MdPeople } from 'react-icons/md';
+import { RiTimeFill } from 'react-icons/ri';
 
 type Episode = {
 	id: string;
@@ -27,6 +30,7 @@ type EpisodeProps = {
 
 export default function Episode({ episode }: EpisodeProps) {
 	const { play } = usePlayer();
+	const { mobileScreen } = useResponsiveUnits();
 
 	return (
 		<div className={styles.container}>
@@ -51,11 +55,22 @@ export default function Episode({ episode }: EpisodeProps) {
 					</button>
 				</div>
 
-				<header>
+				<header id='info'>
 					<h1>{episode.title}</h1>
-					<span>{episode.members}</span>
-					<span>{episode.publishedAt}</span>
-					<span>{episode.durationAsString}</span>
+					<ul>
+						<li className={styles.row}>
+							<MdPeople size={25} className={styles.icon} />{' '}
+							<span>{episode.members}</span>
+						</li>
+						<li className={styles.row}>
+							<MdDateRange size={25} className={styles.icon} />{' '}
+							<span>{episode.publishedAt}</span>
+						</li>
+						<li className={styles.row}>
+							<RiTimeFill size={25} className={styles.icon} />
+							<span>{episode.durationAsString}</span>{' '}
+						</li>
+					</ul>
 				</header>
 				<div
 					className={styles.description}

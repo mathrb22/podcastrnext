@@ -32,6 +32,7 @@
 	text-align: center;
 
 	img {
+		min-width: 5rem;
 		border-radius: 1.5rem;
 	}
 
@@ -146,6 +147,148 @@
 			&:active {
 				background: var(--purple-800);
 			}
+		}
+	}
+}
+
+.expandContainer {
+	width: 100%;
+
+	display: flex;
+	justify-content: flex-end;
+
+	button {
+		background: none;
+		border: none;
+
+		color: #fff;
+		font-size: 1.75rem;
+	}
+}
+
+@media (max-width: 1024px) {
+	.playerContainer {
+		flex-direction: row;
+		justify-content: flex-start;
+		position: fixed;
+		bottom: 0;
+
+		width: 100%;
+		height: 8rem;
+		gap: 1rem;
+		padding: 1rem;
+		max-height: 90vh;
+
+		.header {
+			display: none;
+		}
+
+		.footer {
+			width: 33rem;
+			align-self: center;
+		}
+	}
+
+	.emptyPlayer {
+		width: 100%;
+		height: 6rem;
+		padding: 1rem;
+
+		strong {
+			font-size: 0.8rem;
+		}
+	}
+	.empty {
+		justify-content: center;
+		width: 100%;
+		.buttons {
+			margin-top: 1rem;
+		}
+	}
+
+	.mobilePlayer {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+		img {
+			max-width: 6rem;
+			min-width: 6rem;
+			max-height: 6rem;
+			border-radius: 1.5rem;
+		}
+
+		.currentEpisode {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-width: 7rem;
+			min-height: 5rem;
+			.episodeInfo {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-evenly;
+
+				strong {
+					width: 100%;
+					font-size: 0.9rem;
+					margin-top: 0;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				span {
+					width: 100%;
+					margin-top: 0.1rem;
+					font-size: 0.8rem;
+
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.progress {
+					display: flex;
+					align-items: center;
+					width: 100%;
+					gap: 1rem;
+					font-size: 0.875rem;
+
+					span {
+						display: inline-block;
+						width: 4rem;
+						text-align: center;
+					}
+
+					.slider {
+						flex: 1;
+						.emptySlider {
+							width: 100%;
+							height: 4px;
+							background: var(--purple-300);
+						}
+					}
+				}
+			}
+		}
+	}
+	.playing {
+		justify-content: center;
+		width: 100%;
+		.buttons {
+			margin-top: 1rem;
+		}
+	}
+}
+
+@media (max-width: 820px) {
+	.mobilePlayer {
+		.currentEpisode {
+			visibility: hidden;
+			display: none;
 		}
 	}
 }

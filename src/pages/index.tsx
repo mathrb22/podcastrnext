@@ -8,6 +8,7 @@ import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
 import styles from './home.module.scss';
 import { usePlayer } from '../contexts/PlayerContext';
+import { useTheme } from '../contexts/ThemeContextProvider';
 
 type Episode = {
 	id: string;
@@ -27,104 +28,92 @@ type HomeProps = {
 
 export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
 	const { playList } = usePlayer();
-
+	const { isDarkMode } = useTheme();
 	const episodeList = [...latestEpisodes, ...allEpisodes];
 
 	return (
-		<div className={styles.homePage}>
-			<Head>
-				<title>Home | Podcastr</title>
-			</Head>
-			<section className={styles.latestEpisodes}>
-				<h2>Últimos lançamentos</h2>
-				<ul>
-					{latestEpisodes.map((episode, index) => {
-						return (
-							<li key={episode.id}>
-								<Image
-									width={192}
-									height={192}
-									src={episode.thumbnail}
-									alt={episode.title}
-									objectFit='cover'
-								/>
-
-								<div className={styles.episodeDetails}>
-									<Link href={`/episodes/${episode.id}`}>
-										<a>{episode.title}</a>
-									</Link>
-									<p>{episode.members}</p>
-									<span>{episode.publishedAt}</span>
-									<span>{episode.durationAsString}</span>
-								</div>
-
-								<button type='button' onClick={() => playList(episodeList, index)}>
-									<img
-										src='/play-green.svg'
-										alt='Tocar episódio'
-										title='Tocar episódio'
+		<div className='scrollableContent'>
+			<div className={styles.homePage}>
+				<Head>
+					<title>Home | Podcastr</title>
+				</Head>
+				<section className={styles.latestEpisodes}>
+					<h2>Últimos lançamentos</h2>
+					<ul>
+						{latestEpisodes.map((episode, index) => {
+							return (
+								<li key={episode.id}>
+									<Image
+										width={192}
+										height={192}
+										src={episode.thumbnail}
+										alt={episode.title}
+										objectFit='cover'
 									/>
-								</button>
-							</li>
-						);
-					})}
-				</ul>
-			</section>
-			<section className={styles.allEpisodes}>
-				<h2>Todos episódios</h2>
-				<table cellSpacing={0}>
-					<thead>
-						<tr>
-							<th></th>
-							<th>Podcast</th>
-							<th>Integrantes</th>
-							<th style={{ textAlign: 'right' }}>Data</th>
-							<th>Duração</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
+
+									<div className={styles.episodeDetails}>
+										<Link href={`/episodes/${episode.id}`}>
+											<a className={isDarkMode ? styles.light : ''}>{episode.title}</a>
+										</Link>
+										<span>{episode.publishedAt}</span>
+										<span>{episode.durationAsString}</span>
+									</div>
+
+									<button
+										className={isDarkMode && styles.btnGreen}
+										type='button'
+										onClick={() => playList(episodeList, index)}>
+										<img
+											src={isDarkMode ? '/play.svg' : '/play-green.svg'}
+											alt='Tocar episódio'
+											title='Tocar episódio'
+										/>
+									</button>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
+				<section className={styles.allEpisodes}>
+					<h2>Todos episódios</h2>
+					<ul className={styles.listAll}>
 						{allEpisodes.map((episode, index) => {
 							return (
-								<tr key={episode.id}>
-									<td style={{ width: 72 }}>
+								<li key={episode.id}>
+									<div className={styles.thumbnail}>
 										<Image
-											className={styles.thumbNail}
-											width={120}
-											height={120}
+											width={576}
+											height={576}
 											src={episode.thumbnail}
 											alt={episode.title}
 											objectFit='cover'
 										/>
-									</td>
-									<td>
+									</div>
+
+									<div className={styles.episodeDetails}>
 										<Link href={`/episodes/${episode.id}`}>
-											<a>{episode.title}</a>
+											<a className={isDarkMode ? styles.light : ''}>{episode.title}</a>
 										</Link>
-									</td>
-									<td>{episode.members}</td>
-									<td style={{ width: 100, textAlign: 'right' }}>
-										{episode.publishedAt}
-									</td>
-									<td>{episode.durationAsString}</td>
-									<td>
-										<button
-											className='playBtn'
-											type='button'
-											onClick={() => playList(episodeList, index + latestEpisodes.length)}>
-											<img
-												src='/play-green.svg'
-												alt='Tocar episódio'
-												title='Tocar episódio'
-											/>
-										</button>
-									</td>
-								</tr>
+										{/* <p>{episode.members}</p> */}
+										<span>{episode.publishedAt}</span>
+										<span>{episode.durationAsString}</span>
+									</div>
+									<button
+										className={isDarkMode && styles.btnGreen}
+										type='button'
+										onClick={() => playList(episodeList, index + latestEpisodes.length)}>
+										<img
+											src={isDarkMode ? '/play.svg' : '/play-green.svg'}
+											alt='Tocar episódio'
+											title='Tocar episódio'
+										/>
+									</button>
+								</li>
 							);
 						})}
-					</tbody>
-				</table>
-			</section>
+					</ul>
+				</section>
+			</div>
 		</div>
 	);
 }
@@ -143,7 +132,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			id: episode.id,
 			title: episode.title,
 			members: episode.members,
-			publishedAt: format(parseISO(episode.published_at), 'd MMM yy', {
+			publishedAt: format(parseISO(episode.published_at), 'MMM yyyy', {
 				locale: ptBR,
 			}),
 			thumbnail: episode.thumbnail,

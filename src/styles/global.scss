@@ -19,20 +19,21 @@
 	--purple-400: #9164fa;
 	--purple-500: #8257e5;
 	--purple-800: #6f48c9;
+
+	//darkMode:
+	--dark-background: #121214;
+	--dark-background-lighter: #212025;
+}
+
+html {
+	font-size: 81.25%; // 13px
 }
 
 //Práticas de acessibilidade:
 //Aplicar media queries para as primeiras variações de tamanhos de tela. Obs: utilizar sempre REM (relativa)
 @media (max-width: 1366px) {
 	html {
-		// max-width: 1366px;
 		font-size: 80%;
-	}
-}
-
-@media (max-width: 1080px) {
-	html {
-		font-size: 93.75%;
 	}
 }
 
@@ -45,6 +46,7 @@
 body {
 	background: var(--gray-50);
 	overflow: hidden;
+	transition: all 0.1s ease-in-out;
 }
 
 body,
@@ -77,4 +79,66 @@ h2 {
 
 button {
 	cursor: pointer;
+}
+
+li {
+	span {
+		font-size: 1.5rem;
+	}
+}
+
+.darkMode {
+	background: var(--dark-background);
+	color: var(--gray-50);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--gray-100);
+	}
+
+	p {
+		color: var(--gray-50);
+	}
+
+	table td a {
+		color: var(--gray-50);
+	}
+
+	main {
+		header#appHeader {
+			background: var(--dark-background-lighter);
+			border-bottom: 1px solid var(--dark-background-lighter);
+		}
+
+		header#info {
+			border-bottom: 1px solid var(--dark-background-lighter);
+		}
+	}
+
+	.home_homePage__3mJ6H .home_latestEpisodes__sprHN ul li {
+		background: var(--dark-background-lighter);
+		border: 0;
+	}
+
+	.latestEpisodes {
+		background: var(--dark-background-lighter);
+	}
+
+	.home_homePage__3mJ6H .home_allEpisodes__EffYV ul.home_listAll__2zBvg li {
+		background: var(--dark-background-lighter);
+		border: 0;
+	}
+
+	.allEpisodes {
+		background: var(--dark-background);
+	}
+}
+
+.scrollableContent {
+	height: calc(100vh - 6.5rem);
+	overflow-y: auto;
 }
