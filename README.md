@@ -72,7 +72,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 
 - [**Sass**](https://sass-lang.com/): um pré-processador CSS que estende a sintaxe do CSS convencional, nos dando um controle mais profissional e dinâmico às folhas de estilo (stylesheets);
 
-- [**Axios**](npmjs.com/package/axios): é um cliente HTTP baseado em Promises para fazer requisições.
+- [**Axios**](https://axios-http.com/): é um cliente HTTP baseado em Promises para fazer requisições.
 
 - [**Git**](https://git-scm.com/downloads): o sistema de controle de versão distribuído de código aberto mais utilizado;
 
