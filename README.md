@@ -45,6 +45,7 @@
 <div align="center">
 
 [**Sobre**](#-sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Features**](#-features) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Tecnologias e ferramentas utilizadas**](#-tecnologias-e-ferramentas-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Layout**](#-layout) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Instalação e execução**](#-instalação-e-execução) &nbsp;&nbsp;**|**&nbsp;&nbsp;
@@ -56,9 +57,29 @@
 
 ## 📃 Sobre
 
+<img src=".github/podcastr-playing-dark.png" alt="Podcastr" />
+
 **Podcastr** é o projeto desenvolvido durante a trilha de React da quinta edição da **Next Level Week**, um evento online produzido pela [**Rocketseat**](https://github.com/Rocketseat).
 
 Esta é uma aplicação web que permite os usuários ouvirem seus podcasts favoritos, ver os últimos lançamentos e obter mais informações dos podcasts que estiverem ouvindo no momento.
+
+<img src=".github/podcastr-details-dark.png" alt="Podcastr - Página de detalhes do podcast" />
+
+<br/>
+
+> Este projeto foi muito interessante de desenvolver, pois para o desenvolvimento do player de áudio, utilizamos a API do HTML5 para manipular o áudio sendo tocado pelo usuário, assim como os eventos e estados do player. Além disso, foi possível aprender mais sobre o Next.js, que é um framework React que permite a criação de aplicações web com SSR (Server Side Rendering).
+
+## ✨ Features
+
+- [x] Lista com os últimos lançamentos de podcasts
+- [x] Detalhes do podcast selecionado
+- [x] Exibição da data atual
+- [x] Player com funções de shuffle, repetição, anterior, próximo e play/pause, além da progressão do episódio
+- [x] Layout responsivo
+
+<img src=".github/podcastr-mobile-screens.png" alt="Podcastr" />
+
+- [x] Dark mode / Light mode (Switch)
 
 ## 🚀 Tecnologias e ferramentas utilizadas
 
